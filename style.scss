@@ -1,0 +1,19 @@
+@import "colors";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
+
+$font-size: 14px;
+$width-mobile: 375px;
+$width-desktop: 1440px;
+
+:root {
+  font-size: $font-size;
+}
+
+body {
+  background-color: #000;
+  color: white;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+}

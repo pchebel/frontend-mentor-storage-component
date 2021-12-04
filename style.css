@@ -4,12 +4,225 @@
 }
 
 body {
-  background-color: #000;
+  background-color: #0c122c;
+  background-image: url("./images/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
   color: white;
   display: -ms-grid;
   display: grid;
   place-items: center;
   min-height: 100vh;
   font-family: "Raleway", sans-serif;
+}
+
+.container {
+  width: 92em;
+  height: 20em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .systemManagement {
+  height: 100%;
+  width: 35rem;
+  background-color: #1d2c67;
+  border-radius: 15px 125px 15px 15px;
+  padding: 3.8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container .systemManagement .fileLogo {
+  width: 15rem;
+  height: auto;
+}
+
+.container .systemManagement .buttons {
+  height: 5rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2em;
+}
+
+.container .systemManagement .buttons .fileButton,
+.container .systemManagement .buttons .folderButton,
+.container .systemManagement .buttons .uploadButton {
+  height: 5rem;
+  width: 5rem;
+  background-color: #0c122c;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.container .systemManagement .buttons .fileButton:hover,
+.container .systemManagement .buttons .folderButton:hover,
+.container .systemManagement .buttons .uploadButton:hover {
+  -webkit-filter: brightness(1.2);
+          filter: brightness(1.2);
+}
+
+.container .systemManagement .buttons .fileButton > img {
+  height: 50%;
+}
+
+.container .systemManagement .buttons .folderButton > img {
+  height: 45%;
+}
+
+.container .systemManagement .buttons .uploadButton > img {
+  height: 40%;
+}
+
+.container .storageDescription {
+  height: 78%;
+  width: 53.5rem;
+  background-color: #1d2c67;
+  border-radius: 15px;
+  padding: 1rem 3.8rem 3.8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.container .storageDescription .triangleLabel {
+  position: absolute;
+  right: 3.8rem;
+  width: 0;
+  height: 0;
+  top: 1.5em;
+  border-top: 3.6em solid #fff;
+  border-left: 4rem solid transparent;
+}
+
+.container .storageDescription .remainingLabel {
+  position: absolute;
+  color: #000;
+  background-color: #fff;
+  border-radius: 15px;
+  height: 7.5rem;
+  width: 18rem;
+  right: 3.8rem;
+  top: -4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.container .storageDescription .remainingLabel .valueLeft {
+  font-weight: 700;
+  font-size: 4.3rem;
+}
+
+.container .storageDescription .remainingLabel .unit {
+  font-weight: 700;
+  color: #848794;
+  font-size: 1.3rem;
+}
+
+.container .storageDescription .usedSpace {
+  color: #dddbff;
+  font-size: 1.45rem;
+}
+
+.container .storageDescription .usedSpace .value {
+  font-weight: 700;
+}
+
+.container .storageDescription .loadingBar {
+  width: 100%;
+  height: 2rem;
+  background-color: rgba(12, 18, 44, 0.5);
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.4rem;
+  margin: 0.7rem 0 1rem;
+}
+
+.container .storageDescription .loadingBar .bar {
+  height: 100%;
+  width: 80%;
+  border-radius: 20px;
+  background: -webkit-gradient(linear, left top, right top, from(#ffa399), to(#ff4d97));
+  background: linear-gradient(90deg, #ffa399, #ff4d97);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container .storageDescription .loadingBar .bar .circle {
+  border-radius: 50%;
+  margin: 0.15rem;
+  height: 0.9rem;
+  width: 0.9rem;
+  background-color: #fff;
+}
+
+.container .storageDescription .minMaxContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #dddbff;
 }
 /*# sourceMappingURL=style.css.map */

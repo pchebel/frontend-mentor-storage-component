@@ -10,10 +10,180 @@ $width-desktop: 1440px;
 }
 
 body {
-  background-color: #000;
+  background-color: $vdark-blue;
+  background-image: url("./images/bg-desktop.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
   color: white;
   display: grid;
   place-items: center;
   min-height: 100vh;
   font-family: "Raleway", sans-serif;
+}
+
+$containerRatio: 23/5;
+$containerHeight: 20em;
+$containerWidth: $containerRatio * $containerHeight;
+
+.container {
+  width: $containerWidth;
+  height: $containerHeight;
+  // background-color: #fff1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  $paddingValue: 3.8rem;
+  .systemManagement {
+    height: 100%;
+    width: 35rem;
+    background-color: $dark-blue;
+    border-radius: 15px 125px 15px 15px;
+    padding: $paddingValue;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // border: #fff 1px solid;
+
+    .fileLogo {
+      //   border: #fff 1px solid;
+      width: 15rem;
+      height: auto;
+    }
+
+    .buttons {
+      $buttonHeight: 5rem;
+      height: $buttonHeight;
+      width: 100%;
+      display: flex;
+      gap: 2em;
+
+      .fileButton,
+      .folderButton,
+      .uploadButton {
+        // border: #fff 1px solid;
+        height: $buttonHeight;
+        width: $buttonHeight;
+        background-color: $vdark-blue;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        &:hover {
+          filter: brightness(1.2);
+        }
+      }
+
+      .fileButton > img {
+        height: 50%;
+      }
+
+      .folderButton > img {
+        height: 45%;
+      }
+
+      .uploadButton > img {
+        height: 40%;
+      }
+    }
+  }
+
+  .storageDescription {
+    height: 78%;
+    width: 53.5rem;
+    background-color: $dark-blue;
+    border-radius: 15px;
+    padding: 1rem $paddingValue $paddingValue;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+
+    .triangleLabel {
+      position: absolute;
+      right: $paddingValue;
+      width: 0;
+      height: 0;
+      top: 1.5em;
+      border-top: 3.6em solid #fff;
+      border-left: 4rem solid transparent;
+    }
+
+    .remainingLabel {
+      position: absolute;
+      color: #000;
+      background-color: #fff;
+      border-radius: 15px;
+      height: 7.5rem;
+      width: 18rem;
+      right: $paddingValue;
+      top: -4rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+
+      .valueLeft {
+        font-weight: 700;
+        font-size: 4.3rem;
+      }
+
+      .unit {
+        font-weight: 700;
+        color: $greyish-blue;
+        font-size: 1.3rem;
+      }
+    }
+
+    .usedSpace {
+      color: $pale-blue;
+      font-size: 1.45rem;
+      .value {
+        font-weight: 700;
+      }
+    }
+
+    .loadingBar {
+      width: 100%;
+      height: 2rem;
+      background-color: rgba($vdark-blue, 0.5);
+      border-radius: 20px;
+      box-sizing: border-box;
+      padding: 0.4rem;
+      margin: 0.7rem 0 1rem;
+
+      .bar {
+        height: 100%;
+        width: 80%;
+        border-radius: 20px;
+        background: linear-gradient(90deg, $salmon-grad, $pink-grad);
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        .circle {
+          border-radius: 50%;
+          margin: 0.15rem;
+          height: 0.9rem;
+          width: 0.9rem;
+          background-color: #fff;
+        }
+      }
+    }
+
+    .minMaxContainer {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: $pale-blue;
+    }
+  }
 }

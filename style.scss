@@ -9,6 +9,12 @@ $width-desktop: 1440px;
   font-size: $font-size;
 }
 
+@mixin withSizeChange {
+  transition-property: height, width;
+  transition-duration: 1s;
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 body {
   background-color: $vdark-blue;
   background-image: url("./images/bg-desktop.png");
@@ -27,16 +33,18 @@ $containerHeight: 20em;
 $containerWidth: $containerRatio * $containerHeight;
 
 .container {
+  @include withSizeChange;
   width: $containerWidth;
   height: $containerHeight;
-  // background-color: #fff1;
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
+  position: relative;
 
   $paddingValue: 3.8rem;
   .systemManagement {
+    @include withSizeChange;
     height: 100%;
     width: 35rem;
     background-color: $dark-blue;
@@ -47,10 +55,8 @@ $containerWidth: $containerRatio * $containerHeight;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // border: #fff 1px solid;
 
     .fileLogo {
-      //   border: #fff 1px solid;
       width: 15rem;
       height: auto;
     }
@@ -93,6 +99,7 @@ $containerWidth: $containerRatio * $containerHeight;
   }
 
   .storageDescription {
+    @include withSizeChange;
     height: 78%;
     width: 53.5rem;
     background-color: $dark-blue;
@@ -184,6 +191,66 @@ $containerWidth: $containerRatio * $containerHeight;
       font-weight: 700;
       font-size: 1.25rem;
       color: $pale-blue;
+    }
+  }
+
+  .attribution {
+    transition: bottom 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    width: 100%;
+    position: absolute;
+    font-size: 11px;
+    text-align: center;
+    bottom: -5em;
+    a {
+      color: hsl(228, 45%, 44%);
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body {
+    background-image: url("./images/bg-mobile.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  $mobileRatio: 38/33;
+  $mobileContainerWidth: 37em;
+  $mobileContainerHeight: $mobileRatio * $mobileContainerWidth;
+
+  .container {
+    width: $mobileContainerWidth;
+    height: $mobileContainerHeight;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    .systemManagement {
+      width: 100%;
+      height: 23rem;
+      padding: 3.8rem;
+    }
+
+    .storageDescription {
+      width: 100%;
+      height: 18rem;
+      padding: 2rem 3.8rem 1rem;
+      justify-content: flex-start;
+
+      .triangleLabel {
+        display: none;
+      }
+
+      .remainingLabel {
+        top: 75%;
+        right: 25%;
+      }
+    }
+
+    .attribution {
+      bottom: -6em;
     }
   }
 }
